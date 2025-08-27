@@ -1,4 +1,6 @@
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, redirect } from 'react-router';
+import { logoutUser } from '~/appwrite/auth';
+import { account } from '~/appwrite/client';
 import { sidebarItems } from '~/constants';
 import { cn } from '~/lib/utils';
 
@@ -50,7 +52,8 @@ const NavItems = ({ handleClick }: { handleClick?: () => void }) => {
           <button
             className="cursor-pointer"
             onClick={() => {
-              console.log('logout');
+              logoutUser();
+              return redirect('/sign-in');
             }}
           >
             <img

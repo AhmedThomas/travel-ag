@@ -24,6 +24,7 @@ export const links: Route.LinksFunction = () => [
 ];
 
 import { registerLicense } from '@syncfusion/ej2-base';
+import { logoutUser } from './appwrite/auth';
 
 registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
 

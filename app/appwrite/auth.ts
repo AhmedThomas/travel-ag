@@ -31,11 +31,11 @@ export const storeUserData = async () => {
       appwriteConfig.usersCollectionId,
       ID.unique(),
       {
-        id: user.$id,
+        accountId: user.$id,
         email: user.email,
         name: user.name,
         imageUrl: profilePicture,
-        createdAt: new Date().toISOString(),
+        joinedAt: new Date().toISOString(),
       }
     );
 
@@ -91,7 +91,7 @@ export const getUser = async () => {
       appwriteConfig.usersCollectionId,
       [
         Query.equal('accountId', user.$id),
-        Query.select(['name', 'email', 'imageUrl', 'createdAt', 'id']),
+        Query.select(['name', 'email', 'imageUrl', 'joinedAt', 'accountId']),
       ]
     );
 
