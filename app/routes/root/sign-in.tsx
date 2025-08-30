@@ -8,8 +8,8 @@ export async function clientLoader() {
     const user = await account.get();
 
     if (user.$id) return redirect('/');
-  } catch (error) {
-    console.error('error fetching user', error);
+  } catch (e) {
+    console.log('error fetching user', e);
   }
 }
 

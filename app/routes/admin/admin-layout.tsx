@@ -16,8 +16,6 @@ export async function clientLoader() {
       return redirect('/');
     }
 
-    console.log(existingUser?.status);
-
     return existingUser?.$id ? existingUser : await storeUserData();
   } catch (error) {
     console.error('error in ClientLoader ', error);
