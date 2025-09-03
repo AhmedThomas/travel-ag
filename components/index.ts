@@ -3,3 +3,4 @@ export { default as MobileSidebar } from './mobile-sidebar';
 export { default as Header } from './header';
 export { default as StatsCards } from './stats-card';
 export { default as TripCards } from './trip-card';
+export { default as InfoPill } from './info-pill';
