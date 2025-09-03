@@ -26,6 +26,32 @@ export function parseMarkdownToJson(markdownText: string): unknown | null {
   return null;
 }
 
+export function parseToJson(rawText: string): unknown | null {
+  // First, try to parse it as a raw JSON string
+  try {
+    return JSON.parse(rawText);
+  } catch (e) {
+    console.warn(
+      'Failed to parse as raw JSON. Trying to extract from markdown.'
+    );
+  }
+
+  // If that fails, try to extract from a markdown code block
+  const regex = /```json\n([\s\S]+?)\n```/;
+  const match = rawText.match(regex);
+
+  if (match && match[1]) {
+    try {
+      return JSON.parse(match[1]);
+    } catch (error) {
+      console.error('Error parsing JSON from markdown:', error);
+      return null;
+    }
+  }
+  console.error('No valid JSON or markdown JSON found.');
+  return null;
+}
+
 export function parseTripData(jsonString: string): Trip | null {
   try {
     const data: Trip = JSON.parse(jsonString);
