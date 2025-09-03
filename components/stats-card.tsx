@@ -36,7 +36,7 @@ const StatsCards = ({
                 {Math.round(percentage)}%
               </figcaption>
             </figure>
-            <p className="text-sm font-medium text-gray-100 truncate">
+            <p className="text-sm font-medium text-gray-100 truncate ml-2">
               vs Last Month
             </p>
           </div>
